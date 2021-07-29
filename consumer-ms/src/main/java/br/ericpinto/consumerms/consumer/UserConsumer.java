@@ -20,10 +20,9 @@ public class UserConsumer {
     private String groupId;
 
     @KafkaListener(topics = "${topic.name}", groupId = "${spring.kafka.group-id}", containerFactory = "userKafkaListenerContainerFactory")
-    public void listenTopicCar(ConsumerRecord<String, UserDTO> record){
+    public void listenTopicUser(ConsumerRecord<String, UserDTO> record){
         log.info("Received Message " + record.partition());
         log.info("Received Message " + record.value());
     }
-
 
 }
